@@ -1,0 +1,53 @@
+{
+    "lucas": {
+        "edad": 26,
+        "carrera": "developer",
+        "promedio": 10.0,
+        "materias": [
+            "bordado 1",
+            "Bordado 2",
+            "matematicas avanzadas"
+        ]
+    },
+    "magali": {
+        "edad": 24,
+        "carrera": "arquitectura",
+        "promedio": 10.0,
+        "materias": [
+            "mecanica",
+            "informatica",
+            "literatura"
+        ]
+    },
+    "marcelo": {
+        "edad": 39,
+        "carrera": "gastronomia",
+        "promedio": 5.0,
+        "materias": [
+            "salsas",
+            "pures",
+            "tacos",
+            "chimichangas"
+        ]
+    },
+    "guillermo": {
+        "edad": 44,
+        "carrera": "biotecnico",
+        "promedio": 2.0,
+        "materias": [
+            "biologia",
+            "informatica",
+            "ingles tecnico"
+        ]
+    },
+    "fabiana": {
+        "edad": 44,
+        "carrera": "actriz",
+        "promedio": 1.0,
+        "materias": [
+            "modelaje",
+            "ingles",
+            "social media"
+        ]
+    }
+}
