@@ -1,0 +1,656 @@
+{
+	// Place your snippets for python here. Each snippet is defined under a snippet name and has a prefix, body and 
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+	// same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+
+	// ----------------------------------------Velmont snippets-------------------------------------------------------------------------
+	
+	"Limpiar Terminal": {
+		"prefix": "limpiar",
+		"body": ["# LIMPIAR TERMINAL","import os","os.system(\"cls\" if os.name == \"nt\" else \"clear\")",
+		"# -------------------------.--------------------------------------",],
+		"description": "Código para limpiar la terminal al ejecutar."
+		},
+
+	"Print with double quotes": {
+		"prefix": "prq",
+		"body": ["print(\"$1\")$0"],
+		"description": "Print con comillas dobles"
+	},
+
+	"Function definition": {
+		"prefix": "dfn",
+		"body": ["def $1($2):","\t\"\"\"$3\"\"\"","\t$0"],
+		"description": "Definición de función"
+	},
+
+	"Class definition": {
+		"prefix": "cla",
+		"body": ["class $1:","\t\"\"\"$2\"\"\"","\tdef __init__(self, $3):","\t\t$0"],
+		"description": "Definición de clase básica"
+	},
+
+	"If else statement": {
+		"prefix": "ife",
+		"body": ["if $1:","\t$2","else:","\t$3$0"],
+		"description": "Estructura if-else"
+	},
+
+	"For loop": {
+		"prefix": "fori",
+		"body": ["for $1 in $2:","\t$0"],
+		"description": "Bucle for básico"
+	},
+
+	"List comprehension": {
+		"prefix": "lcomp",
+		"body": ["[$1 for $1 in $2 if $3]$0"],
+		"description": "List comprehension"
+	},
+
+	"Read file": {
+		"prefix": "rfile",
+		"body": ["with open(\"$1\", \"r\") as f:","\tdata = f.read()","\t$0"],
+		"description": "Leer archivo"
+	},
+
+	"Write file": {
+		"prefix": "wfile",
+		"body": ["with open(\"$1\", \"w\") as f:","\tf.write($2)","\t$0"],
+		"description": "Escribir archivo"
+	},
+
+	"Try except block": {
+		"prefix": "trye",
+		"body": ["try:","\t$1","except $2 as e:","\tprint(e)","\t$0"],
+		"description": "Bloque try-except"
+	},
+
+	"Merge dictionaries": {
+		"prefix": "mdic",
+		"body": ["result = {**$1, **$2}$0"], 
+		"description": "Fusión de diccionarios"
+	},
+	
+	// ---------------------------------------------extras----------------------------------------------------------------
+	// ---------------------------------------------ENTRADA Y VALIDACION DE DATOS----------------------------------------------------------------
+	
+	"Input string": {
+		"prefix": "inputstr",
+		"body": [
+			"$1 = input(\"$2\")$0"
+		],
+		"description": "Entrada de texto simple"
+	},
+	
+	"Input integer with validation": {
+		"prefix": "inputint",
+		"body": [
+			"while True:",
+			"\ttry:",
+			"\t\t$1 = int(input(\"$2\"))",
+			"\t\tbreak",
+			"\texcept ValueError:",
+			"\t\tprint(\"Por favor, ingresa un número entero válido.\")$0"
+		],
+		"description": "Entrada de entero con validación"
+	},
+	
+	"Input float with validation": {
+		"prefix": "inputfloat",
+		"body": [
+			"while True:",
+			"\ttry:",
+			"\t\t$1 = float(input(\"$2\"))",
+			"\t\tbreak",
+			"\texcept ValueError:",
+			"\t\tprint(\"Por favor, ingresa un número decimal válido.\")$0"
+		],
+		"description": "Entrada de float con validación"
+	},
+	
+	"Input yes/no validation": {
+		"prefix": "inputyesno",
+		"body": [
+			"while True:",
+			"\tresp = input(\"$1 (s/n): \").lower()",
+			"\tif resp in ['s', 'n']:",
+			"\t\tbreak",
+			"\tprint(\"Respuesta inválida, intenta de nuevo.\")",
+			"$0"
+		],
+		"description": "Entrada sí/no validada"
+	},
+
+	// ---------------------------------------------extras----------------------------------------------------------------
+
+	"While loop": {
+		"prefix": "whl",
+		"body": ["while $1:","\t$0"],
+		"description": "Bucle while"
+	},
+
+	"Enumerate for loop": {
+		"prefix": "enf",
+		"body": ["for idx, val in enumerate($1):","\t$0"],	
+		"description": "For con enumerate"
+	},
+	
+	"Zip for loop": {
+		"prefix": "zipf",
+		"body": ["for $1, $2 in zip($3, $4):","\t$0"],
+		"description": "For con zip"
+	},
+	
+	"Lambda function": {
+		"prefix": "lmb",
+		"body": ["lambda $1: $2$0"],
+		"description": "Función lambda"
+	},
+	
+	"Main guard": {
+		"prefix": "main",
+		"body": ["if __name__ == \"__main__\":","\t$0"],
+		"description": "Bloque principal __main__"
+	},
+
+	"Import pandas as pd": {
+		"prefix": "impd",
+		"body": ["import pandas as pd$0"],
+		"description": "Importar pandas"
+	},
+
+	"Import numpy as np": {
+		"prefix": "impn",
+		"body": ["import numpy as np$0"],
+		"description": "Importar numpy"
+	},
+
+	"Import matplotlib.pyplot": {
+		"prefix": "impplt",
+		"body": ["import matplotlib.pyplot as plt$0"],
+		"description": "Importar matplotlib.pyplot"
+	},
+
+	"Plot with matplotlib": {
+		"prefix": "pltshow",
+		"body": ["plt.plot($1, $2)", "plt.xlabel(\"$3\")", "plt.ylabel(\"$4\")", "plt.title(\"$5\")", "plt.show()$0"],
+		"description": "Graficar con matplotlib"
+	},
+
+	"Basic unit test": {
+		"prefix": "utest",
+		"body": [
+			"import unittest","",
+			"class $1Test(unittest.TestCase):",
+			"\tdef test_$2(self):",
+			"\t\tself.assertEqual($3, $4)",
+			"","if __name__ == \"__main__\":",
+			"\tunittest.main()$0"
+		],
+		"description": "Test básico con unittest"
+	},
+			
+			
+// ---------------------------------------------DECORADORES----------------------------------------------------------------
+
+"Simple decorator": {
+	"prefix": "dec1",
+		"body": [
+			"def $1_decorator(func):",
+			"\tdef wrapper(*args, **kwargs):",
+			"\t\t$2  # código antes",
+			"\t\tresult = func(*args, **kwargs)",
+			"\t\t$3  # código después",
+			"\t\treturn result",
+			"\treturn wrapper$0"
+		],
+		"description": "Decorador simple"
+	},
+	
+	"Decorator with arguments": {
+		"prefix": "decargs",
+		"body": [
+			"def $1_decorator(arg):",
+			"\tdef decorator(func):",
+			"\t\tdef wrapper(*args, **kwargs):",
+			"\t\t\t$2  # usar arg aquí",
+			"\t\t\treturn func(*args, **kwargs)",
+			"\t\treturn wrapper",
+			"\treturn decorator$0"
+		],
+		"description": "Decorador con argumentos"
+	},
+
+	"Time execution decorator": {
+		"prefix": "dectime",
+		"body": [
+			"import time",
+			"",
+			"def timing_decorator(func):",
+			"\tdef wrapper(*args, **kwargs):",
+			"\t\tstart_time = time.time()",
+			"\t\tresult = func(*args, **kwargs)",
+			"\t\tend_time = time.time()",
+			"\t\tprint(f\"{func.__name__} took {end_time - start_time:.4f} seconds\")",
+			"\t\treturn result",
+			"\treturn wrapper$0"
+		],
+		"description": "Decorador que mide tiempo de ejecución"
+	},
+
+	"Logging decorator": {
+		"prefix": "declog",
+		"body": [
+			"def log_decorator(func):",
+			"\tdef wrapper(*args, **kwargs):",
+			"\t\tprint(f\"Calling {func.__name__} with {args} and {kwargs}\")",
+			"\t\tresult = func(*args, **kwargs)",
+			"\t\tprint(f\"{func.__name__} returned {result}\")",
+			"\t\treturn result",
+			"\treturn wrapper$0"
+		],
+		"description": "Decorador que imprime llamadas y resultados"
+	},
+
+	"Class method decorator": {
+		"prefix": "clsmeth",
+		"body": ["@classmethod","def $1(cls, $2):","\t$0"],
+		"description": "Método de clase con @classmethod"
+	},
+
+	"Static method decorator": {
+		"prefix": "statmeth",
+		"body": ["@staticmethod","def $1($2):","\t$0"],
+		"description": "Método estático con @staticmethod"
+	},
+	
+	// ---------------------------------------------DECORADORES AVENZADOS----------------------------------------------------------------
+	
+	"Retry decorator with exceptions": {
+		"prefix": "decretry",
+		"body": [
+			"import time",
+			"from functools import wraps",
+			"",
+			"def retry(exceptions, tries=3, delay=1):",
+			"    def decorator(func):",
+			"        @wraps(func)",
+			"        def wrapper(*args, **kwargs):",
+			"            _tries = tries",
+			"            while _tries > 1:",
+			"                try:",
+			"                    return func(*args, **kwargs)",
+			"                except exceptions as e:",
+			"                    print(f\"Exception: {e}, retrying in {delay} seconds...\")",
+			"                    time.sleep(delay)",
+			"                    _tries -= 1",
+			"            return func(*args, **kwargs)",
+			"        return wrapper",
+			"    return decorator$0"
+		],
+		"description": "Retry automático con excepciones y retraso"
+	},
+
+	"Memoization decorator": {
+		"prefix": "decmemo",
+		"body": [
+			"from functools import wraps",
+			"",
+			"def memoize(func):",
+			"    cache = {}",
+			"    @wraps(func)",
+			"    def wrapper(*args):",
+			"        if args in cache:",
+			"            return cache[args]",
+			"        result = func(*args)",
+			"        cache[args] = result",
+			"        return result",
+			"    return wrapper$0"
+		],
+		"description": "Memoización simple para funciones puras"
+	},
+
+	"Validate types decorator": {
+		"prefix": "dectypeval",
+		"body": [
+			"from functools import wraps",
+			"",
+			"def validate_types(func):",
+			"    @wraps(func)",
+			"    def wrapper(*args, **kwargs):",
+			"        annotations = func.__annotations__",
+			"        for (arg, val) in zip(func.__code__.co_varnames, args):",
+			"            if arg in annotations and not isinstance(val, annotations[arg]):",
+			"                raise TypeError(f\"Argument {arg} must be {annotations[arg]}\")",
+			"        return func(*args, **kwargs)",
+			"    return wrapper$0"
+		],
+		"description": "Validación sencilla de tipos usando anotaciones"
+	},
+
+	"Cache decorator with max size": {
+		"prefix": "deccache",
+		"body": [
+			"from functools import lru_cache",
+			"",
+			"@lru_cache(maxsize=$1)",
+			"def $2($3):",
+			"    $0"
+		],
+		"description": "Cache con lru_cache y tamaño máximo"
+	},
+
+	"Decorator for async functions": {
+		"prefix": "decasync",
+		"body": [
+			"from functools import wraps",
+			"import asyncio",
+			"",
+			"def async_decorator(func):",
+			"    @wraps(func)",
+			"    async def wrapper(*args, **kwargs):",
+			"        print(f\"Starting async function {func.__name__}\")",
+			"        result = await func(*args, **kwargs)",
+			"        print(f\"Finished async function {func.__name__}\")",
+			"        return result",
+			"    return wrapper$0"
+		],
+		"description": "Decorador para funciones async"
+	},
+	
+	
+	// ---------------------------------------------SNIPPETS PARA FLASK----------------------------------------------------------------
+	
+	"Flask app basic": {
+		"prefix": "flaskapp",
+		"body": [
+			"from flask import Flask, request, jsonify",
+			"",
+			"app = Flask(__name__)",
+			"",
+			"@app.route('/', methods=['GET'])",
+			"def home():",
+			"    return \"Hello, Flask!\"",
+			"",
+			"if __name__ == '__main__':",
+			"    app.run(debug=True)$0"
+		],
+		"description": "Aplicación Flask básica"
+	},
+
+	"Flask route GET": {
+		"prefix": "flaskget",
+		"body": [
+			"@app.route('$1', methods=['GET'])",
+			"def $2():",
+			"    # Obtener query params",
+			"    args = request.args",
+			"    $0",
+			"    return jsonify({})"
+		],
+		"description": "Ruta Flask con método GET"
+	},
+
+	"Flask route POST": {
+		"prefix": "flaskpost",
+		"body": [
+			"@app.route('$1', methods=['POST'])",
+			"def $2():",
+			"    # Obtener JSON del body",
+			"    data = request.get_json()",
+			"    $0",
+			"    return jsonify({})"
+		],
+		"description": "Ruta Flask con método POST"
+	},
+
+	"Flask route with variable": {
+		"prefix": "flaskvar",
+		"body": [
+			"@app.route('/$1/<$2>')",
+			"def $3($2):",
+			"    $0",
+			"    return jsonify({})"
+		],
+		"description": "Ruta Flask con variable en URL"
+	},
+
+	"Flask error handler": {
+		"prefix": "flaskerr",
+		"body": [
+			"@app.errorhandler($1)",
+			"def error_$1(e):",
+			"    return jsonify(error=str(e)), $1",
+			"    $0"
+		],
+		"description": "Manejador de errores en Flask"
+	},
+	
+	"Flask redirect": {
+		"prefix": "flaskredir",
+		"body": [
+			"from flask import redirect, url_for",
+			"",
+			"@app.route('$1')",
+			"def $2():",
+			"    return redirect(url_for('$3'))$0"
+		],
+		"description": "Redirección en Flask"
+	},
+	
+	"Flask before request": {
+		"prefix": "flaskbefore",
+		"body": [
+			"@app.before_request",
+			"def before_request_func():",
+			"    # Código a ejecutar antes de cada petición",
+			"    $0"
+		],
+		"description": "Ejecutar código antes de cada request"
+	},
+
+	"Flask after request": {
+		"prefix": "flaskafter",
+		"body": [
+			"@app.after_request",
+			"def after_request_func(response):",
+			"    # Modificar respuesta antes de enviarla",
+			"    return response",
+			"    $0"
+		],
+		"description": "Ejecutar código después de cada request"
+	},
+
+	// ---------------------------------------------MANEJO DE SESIONES (FLASK)----------------------------------------------------------------
+	
+	"Flask set session": {
+		"prefix": "flasksessionset",
+		"body": [
+			"from flask import session",
+			"",
+			"@app.route('$1', methods=['POST'])",
+			"def $2():",
+			"    session['$3'] = $4",
+			"    return jsonify({'message': 'Session variable set'})$0"
+		],
+		"description": "Setear variable en sesión Flask"
+	},
+
+	"Flask get session": {
+		"prefix": "flasksessionget",
+		"body": [
+			"from flask import session",
+			"",
+			"@app.route('$1')",
+			"def $2():",
+			"    value = session.get('$3', None)",
+			"    return jsonify({'session_value': value})$0"
+		],
+		"description": "Obtener variable de sesión Flask"
+	},
+
+	"Flask clear session": {
+		"prefix": "flasksessionclear",
+		"body": [
+			"from flask import session",
+			"",
+			"@app.route('$1')",
+			"def $2():",
+			"    session.clear()",
+			"    return jsonify({'message': 'Session cleared'})$0"
+		],
+		"description": "Limpiar sesión Flask"
+	},
+	
+	// ---------------------------------------------AUTENTICACION BASICA----------------------------------------------------------------
+
+	"Flask login route": {
+		"prefix": "flasklogin",
+		"body": [
+		"from flask import request, session, jsonify",
+		"",
+		"@app.route('/login', methods=['POST'])",
+		"def login():",
+		"    data = request.get_json()",
+		"    username = data.get('username')",
+		"    password = data.get('password')",
+		"    # Validar credenciales (ejemplo simple)",
+		"    if username == 'admin' and password == 'secret':",
+		"        session['user'] = username",
+		"        return jsonify({'message': 'Login successful'})",
+		"    return jsonify({'message': 'Invalid credentials'}), 401$0"
+		],
+		"description": "Ruta de login simple"
+	},
+
+	"Flask logout route": {
+		"prefix": "flasklogout",
+		"body": [
+		"from flask import session, jsonify",
+		"",
+		"@app.route('/logout')",
+		"def logout():",
+		"    session.pop('user', None)",
+		"    return jsonify({'message': 'Logged out'})$0"
+		],
+		"description": "Ruta logout simple"
+	},
+
+	"Flask login required decorator": {
+		"prefix": "flaskloginreq",
+		"body": [
+		"from functools import wraps",
+		"from flask import session, jsonify",
+		"",
+		"def login_required(f):",
+		"    @wraps(f)",
+		"    def decorated_function(*args, **kwargs):",
+		"        if 'user' not in session:",
+		"            return jsonify({'message': 'Authentication required'}), 401",
+		"        return f(*args, **kwargs)",
+		"    return decorated_function$0"
+		],
+		"description": "Decorador para proteger rutas que requieren login"
+	},
+
+	// ---------------------------------------------VALIDACIONES CON EXPRESIONES REGULARES----------------------------------------------------------------
+	
+	"__section_re_validations": {
+		"prefix": "__section_re_validations",
+		"body": [],
+		"description": "--- Validaciones con expresiones regulares (re) ---"
+	},
+
+	"Validate email": {
+		"prefix": "valemail",
+		"body": [
+			"import re",
+			"",
+			"def is_valid_email(email):",
+			"    pattern = r\"^[\\w\\.-]+@[\\w\\.-]+\\.\\w+$\"",
+			"    return re.match(pattern, email) is not None",
+			"",
+			"# Uso ejemplo",
+			"email = input(\"Ingresa tu email: \")",
+			"if is_valid_email(email):",
+			"    print(\"Email válido\")",
+			"else:",
+			"    print(\"Email inválido\")",
+			"$0"
+		],
+		"description": "Validar email con regex"
+	},
+
+	"Validate phone number": {
+		"prefix": "valphone",
+		"body": [
+			"import re",
+			"",
+			"def is_valid_phone(phone):",
+			"    pattern = r\"^\\+?\\d{10,15}$\"",
+			"    return re.match(pattern, phone) is not None",
+			"",
+			"# Uso ejemplo",
+			"phone = input(\"Ingresa tu número telefónico: \")",
+			"if is_valid_phone(phone):",
+			"    print(\"Teléfono válido\")",
+			"else:",
+			"    print(\"Teléfono inválido\")",
+			"$0"
+		],
+		"description": "Validar número telefónico con regex"
+	},
+
+	"Validate URL": {
+		"prefix": "valurl",
+		"body": [
+			"import re",
+			"",
+			"def is_valid_url(url):",
+			"    pattern = r\"^(https?:\\/\\/)?([\\w\\.-]+)\\.([a-z\\.]{2,6})([\\/\\w \\.-]*)*\\/?$\"",
+			"    return re.match(pattern, url) is not None",
+			"",
+			"# Uso ejemplo",
+			"url = input(\"Ingresa una URL: \")",
+			"if is_valid_url(url):",
+			"    print(\"URL válida\")",
+			"else:",
+			"    print(\"URL inválida\")",
+			"$0"
+		],
+		"description": "Validar URL con regex"
+	},
+
+	"Validate postal code (US)": {
+		"prefix": "valzip",
+		"body": [
+			"import re",
+			"",
+			"def is_valid_zip(zip_code):",
+			"    pattern = r\"^\\d{5}(-\\d{4})?$\"",
+			"    return re.match(pattern, zip_code) is not None",
+			"",
+			"# Uso ejemplo",
+			"zip_code = input(\"Ingresa código postal (US): \")",
+			"if is_valid_zip(zip_code):",
+			"    print(\"Código postal válido\")",
+			"else:",
+			"    print(\"Código postal inválido\")",
+			"$0"
+		],
+		"description": "Validar código postal US con regex"
+	},
+
+	// ---------------------------------------------SNIPPETS PARA FLASK----------------------------------------------------------------
+}

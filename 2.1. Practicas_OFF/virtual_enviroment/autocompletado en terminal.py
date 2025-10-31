@@ -25,7 +25,7 @@ Python: Select Interpreter
 
 Elige el que corresponda a tu proyecto, por ejemplo:
 
-.venv\Scripts\python.exe        ← en Windows
+.venv\\Scripts\\python.exe        ← en Windows
 .venv/bin/python                ← en Linux / macOS
 
 
