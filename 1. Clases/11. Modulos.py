@@ -286,11 +286,13 @@
     Este código comienza importando el módulo datetime.
     Luego, utiliza la función datetime.datetime.now()
     para obtener un objeto que representa la fecha y hora actual.
+    
     Este objeto se puede formatear utilizando el método .strftime(), que permite personalizar la salida según un formato especificado.
     Por ejemplo, "%Y-%m-%d" produce una salida en formato de fecha estándar, mientras que "%H:%M:%S" muestra únicamente la hora.
     Además, se utiliza "%d de %B de %Y" para generar una fecha en un formato más legible, como "26 de diciembre de 2024".
 
 #? Tabla de funciones comunes del módulo datetime
+
                 Función                        Descripción                                             ejemplo de uso
             datetime.datetime.now()     Devuelve la fecha y hora actual                             ahora = datetime.datetime.now()
 
@@ -333,21 +335,21 @@ TODO        pip show colorama
     Esto mostrará información sobre la versión instalada y su ubicación.
 
 #? Cómo usar colorama
-Para empezar a darle color a tus textos en la terminal con Colorama, el primer paso es inicializar la biblioteca. 
-Esto se logra mediante una llamada a la función init(). 
-Al hacerlo, colorama prepara tu entorno para que pueda interpretar y mostrar los colores correctamente. 
-Veamos cómo hacerlo:
-    from colorama import init
-    init()
-Una vez que colorama está inicializado, cambiar el color del texto es tan simple como utilizar una de las constantes de colorama.Fore.*. 
-Por ejemplo, si deseas imprimir el texto "Hola Mundo" en color verde, podés hacerlo de la siguiente manera:
-    from colorama import Fore, init
-    init()
-    print(Fore.GREEN + "Hola Mundo")
-    
-    Este código agrega el color verde al texto, resultando en una salida colorida y llamativa en tu terminal.
-    # salida:
-*        Hola Mundo
+    Para empezar a darle color a tus textos en la terminal con Colorama, el primer paso es inicializar la biblioteca. 
+    Esto se logra mediante una llamada a la función init(). 
+    Al hacerlo, colorama prepara tu entorno para que pueda interpretar y mostrar los colores correctamente. 
+    Veamos cómo hacerlo:
+        from colorama import init
+        init()
+    Una vez que colorama está inicializado, cambiar el color del texto es tan simple como utilizar una de las constantes de colorama.Fore.*. 
+    Por ejemplo, si deseas imprimir el texto "Hola Mundo" en color verde, podés hacerlo de la siguiente manera:
+        from colorama import Fore, init
+        init()
+        print(Fore.GREEN + "Hola Mundo")
+        
+        Este código agrega el color verde al texto, resultando en una salida colorida y llamativa en tu terminal.
+        # salida:
+*           Hola Mundo
 
 #? Personalización avanzada con colorama.
     Cambiar el fondo del texto
@@ -358,7 +360,8 @@ Por ejemplo, si deseas imprimir el texto "Hola Mundo" en color verde, podés hac
         print(Back.RED + "Hola Mundo")
         Salida:
         Hola Mundo
-    Combinar colores de texto y fondo
+
+#? Combinar colores de texto y fondo
     Colorama también te permite combinar colores de texto y fondo en una misma impresión:
         from colorama import Fore, Back, init
         init()
@@ -379,7 +382,6 @@ Por ejemplo, si deseas imprimir el texto "Hola Mundo" en color verde, podés hac
 """
 
 
-
 """ Preguntas para Reflexionar: 
     1. ¿Cómo creés que el uso de módulos puede ayudarte a mejorar la organización de tus proyectos? 
         Pensá en ejemplos concretos donde dividir el código en módulos podría simplificar su mantenimiento. 
@@ -393,8 +395,6 @@ Por ejemplo, si deseas imprimir el texto "Hola Mundo" en color verde, podés hac
     ¿cómo los usarías para estructurar un proyecto más grande? 
     ¿Qué partes del código podrías separar en diferentes archivos para facilitar el trabajo en equipo? 
     """
-
-
 
 """ Próximos Pasos: 
     En la próxima clase, vas a explorar un concepto fundamental en el desarrollo de software: 
