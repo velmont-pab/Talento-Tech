@@ -6,38 +6,35 @@ Clase N° 13 | Módulo SQLite 3
         ● Creación de tablas y definición de campos. 
         ● Consultas SQL básicas desde Python: SELECT, INSERT, UPDATE, DELETE.
 
-    Objetivos de la Clase 
-    En esta clase, aprenderás a trabajar con bases de datos SQLite directamente desde 
-    Python, un paso esencial para desarrollar aplicaciones que manejen grandes volúmenes de 
-    datos de manera organizada y eficiente. Descubrirás cómo instalar y utilizar el módulo 
-    sqlite3 para conectar tus programas con una base de datos SQLite, lo que permitirá 
+#?  Objetivos de la Clase 
+    En esta clase, aprenderás a trabajar con bases de datos SQLite directamente desde Python, 
+    un paso esencial para desarrollar aplicaciones que manejen grandes volúmenes de datos de manera organizada y eficiente. 
+    Descubrirás cómo instalar y utilizar el módulo sqlite3 para conectar tus programas con una base de datos SQLite, lo que permitirá 
     almacenar y recuperar información de forma persistente. 
 
     Además, explorarás cómo crear bases de datos y definir tablas con campos específicos, 
-    entendiendo la importancia de estructurar los datos de manera lógica para facilitar su 
-    manipulación. También aprenderás a ejecutar consultas SQL básicas, como SELECT, 
-    INSERT, UPDATE y DELETE, que te permitirán gestionar y modificar la información 
-    almacenada según las necesidades de tu aplicación. 
+    entendiendo la importancia de estructurar los datos de manera lógica para facilitar su manipulación. 
+    También aprenderás a ejecutar consultas SQL básicas, como SELECT, INSERT, UPDATE y DELETE, 
+    que te permitirán gestionar y modificar la información almacenada según las necesidades de tu aplicación. 
 
-    La integración de consultas SQL en tus programas será otro aspecto clave que abordarás, 
-    lo que te preparará para diseñar aplicaciones más avanzadas y robustas. Con estas 
-    herramientas, darás un gran paso hacia la creación de proyectos con una gestión 
-    profesional de la información.  
+    La integración de consultas SQL en tus programas será otro aspecto clave que abordarás, lo que te preparará para diseñar aplicaciones más avanzadas y robustas. 
+    Con estas herramientas, darás un gran paso hacia la creación de proyectos con una gestión profesional de la información.  
 
 #?  Estructura de la base de datos 
-        En una base de datos, la información se organiza en tablas. 
-        Podemos imaginar una tabla como una hoja de cálculo donde cada fila representa un registro (como un producto del inventario) y cada columna representa un campo 
-        (por ejemplo, el nombre del producto, el precio o la cantidad disponible). 
-        Esta estructura es muy práctica porque facilita la búsqueda,  el filtrado y la modificación de datos.
-    
+    En una base de datos, la información se organiza en tablas. 
+    Podemos imaginar una tabla como una hoja de cálculo donde cada fila representa un registro (como un producto del inventario) y cada columna representa un campo 
+    (por ejemplo, el nombre del producto, el precio o la cantidad disponible). 
+
+    Esta estructura es muy práctica porque facilita la búsqueda,  el filtrado y la modificación de datos.
     Ejemplo simple de una tabla
 
-    | ID Producto | Nombre   |          Descripcion              | Cantidad |   Precio  |  Categoria |
-    |    1        | Manzana  |       Fruta Fresca                |   50     |    0.5    |   Frutas   |
-    |    2        | Pan      |       Pan Casero                  |   20     |    1.0    | Panaderias |
-    |    3        | Leche    |       Leche Descremada            |   100    |    0.75   | Lacteos    |
-    |    4        | Jugo     |  Jugo de Naranja Natural          |   30     |    1.5    | Bebidas    |
+    | ID Producto | Nombre   |   Descripcion             | Cantidad |   Precio  |  Categoria |
+    |    1        | Manzana  |       Fruta Fresca        |   50     |    0.5    |   Frutas   |
+    |    2        | Pan      |       Pan Casero          |   20     |    1.0    | Panaderias |
+    |    3        | Leche    |       Leche Descremada    |   100    |    0.75   | Lacteos    |
+    |    4        | Jugo     |  Jugo de Naranja Natural  |   30     |    1.5    | Bebidas    |
     
+
 #?  Campos y registros en las tablas 
     En una base de datos, un campo es una columna dentro de una tabla que almacena un tipo 
     específico de información sobre los registros que están en esa tabla. 
@@ -49,9 +46,10 @@ Clase N° 13 | Módulo SQLite 3
 
     Estos son algunos de los tipos de datos más comunes y útiles para un proyecto de gestión de inventario: 
         ● Texto: 
-            Este tipo de dato se utiliza para almacenar cadenas de texto. Es útil cuando queremos guardar nombres de productos, descripciones o categorías. 
-            Por ejemplo, podríamos tener un campo llamado "nombre" para guardar el nombre del producto 
-            ("Manzana", "Leche", etc.) y otro llamado "descripción" para una breve descripción del producto. 
+            Este tipo de dato se utiliza para almacenar cadenas de texto. 
+            Es útil cuando queremos guardar nombres de productos, descripciones o categorías. 
+            Por ejemplo, podríamos tener un campo llamado "nombre" para guardar el nombre del producto ("Manzana", "Leche", etc.)
+            y otro llamado "descripción" para una breve descripción del producto. 
         
         ● Números enteros: 
             Este tipo de dato se utiliza para almacenar números enteros. 
@@ -74,9 +72,10 @@ Clase N° 13 | Módulo SQLite 3
 
 
 #?  Campos clave. 
-    Ahora vamos a hablar sobre un concepto clave en las bases de datos: el campo clave, o también conocido como clave primaria. 
-    Este campo es uno de los elementos más importantes cuando diseñamos una tabla en nuestra base de datos. 
+    Ahora vamos a hablar sobre un concepto clave en las bases de datos: 
+        el campo clave, o también conocido como clave primaria. 
 
+    Este campo es uno de los elementos más importantes cuando diseñamos una tabla en nuestra base de datos. 
     Un campo clave es un campo especial dentro de una tabla que se utiliza para identificar de manera única cada registro. 
     Imaginemos que tenemos una tabla donde guardamos todos los productos del inventario. 
     Cada producto tiene su propio nombre, precio, cantidad, etc., pero necesitamos un dato que permita diferenciar cada producto de manera única. 
@@ -94,9 +93,7 @@ Clase N° 13 | Módulo SQLite 3
             No puede quedar vacío. 
             Si no existiera una clave para un registro, no tendríamos manera de identificarlo claramente dentro de la tabla, 
             lo que generaría problemas al momento de buscar o actualizar información. 
-            
-            
-            
+           
     Por ejemplo, en nuestra tabla de productos, podemos tener un campo llamado "ID Producto" que actúe como clave primaria. 
     Supongamos que tenemos estos productos. 
 
@@ -110,8 +107,7 @@ Clase N° 13 | Módulo SQLite 3
     El hecho de que sea único y obligatorio nos asegura que podemos identificar cualquier producto en la tabla sin confusión.
 
     Una de las mayores ventajas de utilizar una clave primaria es que nos permite realizar búsquedas de manera rápida. 
-    Al tener un identificador único para cada registro, podemos 
-    encontrar lo que buscamos sin tener que comparar otros campos. 
+    Al tener un identificador único para cada registro, podemos encontrar lo que buscamos sin tener que comparar otros campos. 
     Además, nos brinda seguridad al momento de actualizar datos. 
     Si necesitamos cambiar la cantidad de un producto o modificar su precio, podemos hacerlo con la tranquilidad de que estamos 
     editando el registro correcto, ya que está identificado de forma única. 
@@ -140,20 +136,17 @@ Clase N° 13 | Módulo SQLite 3
 
     Si la base de datos no existe, SQLite la creará automáticamente en el lugar indicado, lo que simplifica enormemente el proceso de configuración. 
     La conexión se establece mediante la función sqlite3.connect(). 
+
     Este método requiere que especifiques el nombre del archivo donde se almacenará la base de datos. 
     Por ejemplo, si querés crear una base de datos llamada productos.db, simplemente indicás este nombre al método. 
     Una vez creada la conexión, también es necesario cerrarla al final del programa para liberar recursos y asegurar que todos los cambios se guarden correctamente. 
         Veamos un ejemplo básico: 
-            import sqlite3 
-            # Establecer la conexión a la base de datos 
+            
+            import sqlite3  # Establecer la conexión a la base de datos 
+
             conexion = sqlite3.connect("productos.db") 
             print("Conexión establecida exitosamente.") 
-            # Cerrar la conexión 
-            conexion.close() 
-            import sqlite3 
-            # Establecer la conexión a la base de datos 
-            conexion = sqlite3.connect("productos.db") 
-            print("Conexión establecida exitosamente.") 
+            
             # Cerrar la conexión 
             conexion.close() 
 
@@ -163,16 +156,15 @@ Clase N° 13 | Módulo SQLite 3
         Cerrar la conexión no solo es una buena práctica, sino que también previene errores relacionados con bloqueos de archivo o recursos no liberados.  
         
 #?  Creación de tablas y definición de campos 
-    Una vez establecida la conexión con una base de datos SQLite, el siguiente paso es definir 
-    su estructura creando tablas. 
-    Una tabla es el componente principal de una base de datos, 
-    donde los datos se organizan en filas y columnas. 
+    Una vez establecida la conexión con una base de datos SQLite, el siguiente paso es definir su estructura creando tablas. 
+    Una tabla es el componente principal de una base de datos, donde los datos se organizan en filas y columnas. 
     Cada columna representa un campo con un tipo de dato específico, como texto, números o fechas, mientras que cada fila almacena un registro individual. 
 
     Para crear una tabla en SQLite desde Python, utilizamos sentencias SQL con el método execute() proporcionado por el objeto cursor. 
     El cursor es una herramienta que nos permite interactuar con la base de datos, ejecutar consultas y recuperar resultados. 
     A continuación, un ejemplo donde se crea una tabla llamada productos con tres campos: 
         id (clave primaria), nombre (nombre del producto) y precio (precio del producto): 
+
             import sqlite3 
             
             # Establecer la conexión a la base de datos 
@@ -182,13 +174,7 @@ Clase N° 13 | Módulo SQLite 3
             cursor = conexion.cursor() 
             
             # Crear una tabla 
-            cursor.execute(''' 
-            CREATE TABLE IF NOT EXISTS productos ( 
-                id INTEGER PRIMARY KEY AUTOINCREMENT, 
-                nombre TEXT NOT NULL, 
-                precio REAL NOT NULL 
-            ) 
-            ''') 
+            cursor.execute(''' CREATE TABLE IF NOT EXISTS productos (id INTEGER PRIMARY KEY AUTOINCREMENT, nombre TEXT NOT NULL, precio REAL NOT NULL)''') 
             
             print("Tabla 'productos' creada exitosamente.") 
             
